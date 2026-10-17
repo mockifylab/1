@@ -1,3 +1,4 @@
+#include "caeliglow/about_page.h"
 #include "calendar/calendar_service.h"
 #include "compositors/compositor_detect.h"
 #include "compositors/compositor_platform.h"
@@ -414,6 +415,10 @@ namespace {
     }
     if (section == "brightness") {
       return schema::writeTable(cfg.brightness, schema::brightnessSchema());
+    }
+    // CaeliGlow: project settings (About page repository link / update checker).
+    if (section == "caeliglow") {
+      return schema::writeTable(cfg.caeliGlow, schema::caeliGlowSchema());
     }
     if (section == "calendar") {
       return schema::writeTable(cfg.calendar, schema::calendarSchema());
@@ -1201,6 +1206,19 @@ void SettingsWindow::rebuildSettingsContent() {
                   m_pendingDeletePluginId.clear();
                   requestSceneRebuild();
                 },
+        }
+    );
+  }
+
+  // CaeliGlow: native About section (fully custom content, not a plugin page).
+  if (m_selectedSection == "caeliglow") {
+    caeliglow::addSettingsCaeliGlow(
+        *m_contentContainer,
+        caeliglow::AboutPageContext{
+            .scale = scale,
+            .selectedSection = m_selectedSection,
+            .config = &cfg,
+            .pageTitleRow = m_pageTitleRow,
         }
     );
   }

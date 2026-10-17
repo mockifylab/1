@@ -147,7 +147,9 @@ namespace caeliglow {
           button->inputArea(), instance.surface->layerSurface(), instance.output
       );
     } else {
-      TooltipManager::instance().onHoverChange(nullptr, nullptr, nullptr);
+      TooltipManager::instance().onHoverChange(
+          nullptr, static_cast<zwlr_layer_surface_v1*>(nullptr), static_cast<wl_output*>(nullptr)
+      );
     }
   }
 

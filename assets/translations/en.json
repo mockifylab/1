@@ -190,6 +190,19 @@
       "suspend": "Suspend",
       "logout": "Log Out",
       "confirmHint": "Click again to confirm: {action}"
+    },
+    "about": {
+      "tagline": "A calm, glowing desktop shell for CachyOS and Hyprland.",
+      "version": "Version",
+      "basedOn": "Based on Noctalia {version}",
+      "developer": "Developer",
+      "repository": "Repository",
+      "repositoryNotConfigured": "Not configured yet — set caeliglow.repository_url in your config file once the repository exists.",
+      "updateStatus": "Update status",
+      "checkForUpdates": "Check for updates",
+      "wouldQuery": "A future updater would query: {url}",
+      "fetchNotImplemented": "Automatic release fetching is not implemented in this build.",
+      "attribution": "CaeliGlow is a Noctalia-based customization by Aasif. Caelestia is used only as a behavioral reference; there is no affiliation with or endorsement by either project."
     }
   },
   "clipboard": {
@@ -1455,7 +1468,8 @@
         "system": "System",
         "templates": "Templates",
         "umbriel": "Umbriel",
-        "wallpaper": "Wallpaper"
+        "wallpaper": "Wallpaper",
+        "caeliglow": "CaeliGlow"
       }
     },
     "notifications": {

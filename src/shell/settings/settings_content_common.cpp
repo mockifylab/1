@@ -345,6 +345,7 @@ namespace settings {
     case SettingsSection::Umbriel:
     case SettingsSection::Bar:
     case SettingsSection::Plugins:
+    case SettingsSection::CaeliGlow:
       return false;
     }
     return false;
@@ -382,6 +383,7 @@ namespace settings {
     case SettingsSection::Umbriel:
     case SettingsSection::Bar:
     case SettingsSection::Plugins:
+    case SettingsSection::CaeliGlow:
       return {};
     }
     return {};

@@ -1465,7 +1465,8 @@ namespace settings {
 
     // The Plugins section has no registry entries — it renders fully custom
     // content (addSettingsPlugins), so suppress the "no settings found" state.
-    if (visibleEntries == 0 && ctx.selectedSection != "plugins") {
+    // Same for CaeliGlow's native About section (addSettingsCaeliGlow).
+    if (visibleEntries == 0 && ctx.selectedSection != "plugins" && ctx.selectedSection != "caeliglow") {
       auto emptyState = ui::column(
           {.align = FlexAlign::Center,
            .justify = FlexJustify::Center,

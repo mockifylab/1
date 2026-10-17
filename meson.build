@@ -432,6 +432,7 @@ _noctalia_sources = files(
   'src/caeliglow/update_checker.cpp',
   'src/caeliglow/launcher_edge_trigger.cpp',
   'src/caeliglow/power_edge_strip.cpp',
+  'src/caeliglow/about_page.cpp',
   'src/app/application.cpp',
   'src/app/application_events.cpp',
   'src/app/application_ipc.cpp',

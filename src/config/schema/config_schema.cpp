@@ -450,6 +450,14 @@ namespace noctalia::config::schema {
     return s;
   }
 
+  // CaeliGlow project settings.
+  const Schema<CaeliGlowConfig>& caeliGlowSchema() {
+    static const Schema<CaeliGlowConfig> s = {
+        field(&CaeliGlowConfig::repositoryUrl, "repository_url"),
+    };
+    return s;
+  }
+
   const Schema<HotCornersConfig>& hotCornersSchema() {
     static const Schema<HotCornersConfig::Corner> cornerSchema = {
         field(&HotCornersConfig::Corner::action, "action"),

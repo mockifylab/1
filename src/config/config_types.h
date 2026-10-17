@@ -1879,6 +1879,16 @@ struct AccessibilityConfig {
   bool operator==(const AccessibilityConfig&) const = default;
 };
 
+// CaeliGlow project configuration.
+struct CaeliGlowConfig {
+  // GitHub repository for update checking and the About page link, as
+  // "owner/repo" or a full https://github.com/owner/repo URL. Empty until the
+  // project is published; the update checker reports "not configured" while
+  // this is empty. (TOML key: caeliglow.repository_url)
+  std::string repositoryUrl;
+  bool operator==(const CaeliGlowConfig&) const = default;
+};
+
 struct HotCornersConfig {
   bool enabled = false;
   // Hold time in the corner before the action runs. 0 = trigger immediately on enter.
@@ -1908,6 +1918,8 @@ struct Config {
   DockConfig dock;
   DesktopWidgetsConfig desktopWidgets;
   HotCornersConfig hotCorners;
+  // CaeliGlow project settings (repository URL for the About page / updater).
+  CaeliGlowConfig caeliGlow;
   StorageConfig storage;
   ShellConfig shell;
   OsdConfig osd;

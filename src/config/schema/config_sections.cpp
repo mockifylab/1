@@ -66,6 +66,8 @@ namespace noctalia::config::schema {
         t.push_back(makeSection("keybinds", &Config::keybinds, keybindsSchema()));
         t.push_back(makeSection("dock", &Config::dock, dockSchema()));
         t.push_back(makeSection("hot_corners", &Config::hotCorners, hotCornersSchema()));
+        // CaeliGlow project settings (About page repository link / update checker).
+        t.push_back(makeSection("caeliglow", &Config::caeliGlow, caeliGlowSchema()));
         t.push_back(makeSection("control_center", &Config::controlCenter, controlCenterSchema()));
         t.push_back(makeSection("plugins", &Config::plugins, pluginsSchema()));
         t.push_back(makeSection("hooks", &Config::hooks, hooksSchema()));

@@ -48,6 +48,8 @@ namespace settings {
     Umbriel,
     Bar,
     Plugins,
+    // CaeliGlow: native About section (fully custom content, like Plugins).
+    CaeliGlow,
   };
 
   struct SettingsSectionDescriptor {
