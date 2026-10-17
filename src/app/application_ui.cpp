@@ -462,6 +462,9 @@ void Application::initInputDispatch() {
     // CaeliGlow: bottom-edge launcher reveal trigger.
     if (m_launcherEdgeTrigger.onPointerEvent(event))
       return;
+    // CaeliGlow: right-edge power controls.
+    if (m_powerEdgeStrip.onPointerEvent(event))
+      return;
     m_notificationToast.onPointerEvent(event);
   });
 
@@ -1167,4 +1170,6 @@ void Application::initWidgetControllersAndCallbacks() {
   m_hotCorners.initialize(m_wayland, &m_configService, &m_renderContext);
   // CaeliGlow: bottom-edge launcher reveal trigger.
   m_launcherEdgeTrigger.initialize(m_wayland, &m_renderContext);
+  // CaeliGlow: right-edge power controls.
+  m_powerEdgeStrip.initialize(m_wayland, &m_renderContext);
 }

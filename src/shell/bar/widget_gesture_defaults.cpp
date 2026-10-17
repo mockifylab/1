@@ -70,7 +70,11 @@ namespace noctalia::bar {
          {Gesture::ScrollDown, "power-cycle prev"}}
     };
     constexpr std::array<GestureBinding, 1> kScreenshot{{{Gesture::Left, "screenshot-region"}}};
-    constexpr std::array<GestureBinding, 1> kSession{{{Gesture::Left, "panel-toggle session"}}};
+    // CaeliGlow: the session bar widget's default power-menu gesture is disabled
+    // because the right-edge power strip (caeliglow/power_edge_strip) is now the
+    // single power control surface. The widget stays available for manual use;
+    // users can re-bind a gesture explicitly if they want the old panel back.
+    constexpr std::array<GestureBinding, 0> kSession{};
     constexpr std::array<GestureBinding, 2> kTaskbar{
         {{Gesture::ScrollUp, "taskbar-cycle prev"}, {Gesture::ScrollDown, "taskbar-cycle next"}}
     };

@@ -183,6 +183,15 @@
       }
     }
   },
+  "caeliglow": {
+    "power": {
+      "restart": "Restart",
+      "shutdown": "Shut Down",
+      "suspend": "Suspend",
+      "logout": "Log Out",
+      "confirmHint": "Click again to confirm: {action}"
+    }
+  },
   "clipboard": {
     "actions": {
       "clear-all": "Clear everything",

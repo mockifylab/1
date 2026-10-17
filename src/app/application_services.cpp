@@ -855,6 +855,8 @@ void Application::reconcileOutputSurfaces() {
   m_hotCorners.onOutputChange();
   // CaeliGlow: bottom-edge launcher reveal trigger.
   m_launcherEdgeTrigger.onOutputChange();
+  // CaeliGlow: right-edge power controls.
+  m_powerEdgeStrip.onOutputChange();
   m_lockScreen.onOutputChange();
   m_idleGraceOverlay.onOutputChange();
   m_idleInhibitor.onOutputChange();

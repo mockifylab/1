@@ -431,6 +431,7 @@ _noctalia_sources = files(
   # CaeliGlow additions (kept grouped for rebase clarity).
   'src/caeliglow/update_checker.cpp',
   'src/caeliglow/launcher_edge_trigger.cpp',
+  'src/caeliglow/power_edge_strip.cpp',
   'src/app/application.cpp',
   'src/app/application_events.cpp',
   'src/app/application_ipc.cpp',

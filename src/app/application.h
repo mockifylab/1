@@ -43,6 +43,7 @@
 #include "shell/desktop/desktop_widgets_controller.h"
 #include "shell/dock/dock.h"
 #include "caeliglow/launcher_edge_trigger.h"
+#include "caeliglow/power_edge_strip.h"
 #include "shell/hot_corners/hot_corners.h"
 #include "shell/lockscreen/lock_screen.h"
 #include "shell/lockscreen/lockscreen_widgets_controller.h"
@@ -167,6 +168,9 @@ public:
   // Highest layer-shell layer occupied by any bar on the given output. Hot
   // corners place their trigger surfaces on this layer.
   [[nodiscard]] LayerShellLayer hotCornerLayerForOutput(wl_output* output) const noexcept;
+  // Shared session-action runner (also used by the session panel). CaeliGlow's
+  // right-edge power strip executes through this runner.
+  [[nodiscard]] SessionActionRunner& sessionActionRunner() noexcept { return m_sessionActionRunner; }
 
 private:
   void initServices();
@@ -369,6 +373,8 @@ private:
   HotCorners m_hotCorners{this};
   // CaeliGlow: bottom-edge launcher reveal trigger.
   caeliglow::LauncherEdgeTrigger m_launcherEdgeTrigger{this};
+  // CaeliGlow: right-edge power controls.
+  caeliglow::PowerEdgeStrip m_powerEdgeStrip{this};
   ScreenCorners m_screenCorners;
   TrayMenu m_trayMenu;
   Wallpaper m_wallpaper;
