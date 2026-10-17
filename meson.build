@@ -11,6 +11,11 @@ project('noctalia', ['c', 'cpp'],
 
 cc  = meson.get_compiler('c')
 cpp = meson.get_compiler('cpp')
+fs  = import('fs')
+
+# CaeliGlow canonical version: single source is the CAELIGLOW_VERSION file at
+# the repository root. Upstream Noctalia's VERSION file is left untouched.
+caeliglow_version = fs.read('CAELIGLOW_VERSION').strip()
 
 
 # Clang requires an opt-in flag to properly use experimental C++ libraries.
@@ -423,6 +428,8 @@ alias_target('wayland-protocol-headers', _protocol_headers)
 
 # ── Main sources ──────────────────────────────────────────────────────────────
 _noctalia_sources = files(
+  # CaeliGlow additions (kept grouped for rebase clarity).
+  'src/caeliglow/update_checker.cpp',
   'src/app/application.cpp',
   'src/app/application_events.cpp',
   'src/app/application_ipc.cpp',
@@ -1111,6 +1118,7 @@ _noctalia_compile_definitions = [
   '-DNOCTALIA_INSTALL_PREFIX="' + get_option('prefix') + '"',
   '-DNOCTALIA_INSTALL_DATADIR="' + get_option('datadir') + '"',
   '-DNOCTALIA_VERSION="' + meson.project_version() + '"',
+  '-DCAELIGLOW_VERSION="' + caeliglow_version + '"',
 ] + jemalloc_cpp_args
 
 _noctalia_cpp_args = [
@@ -1186,6 +1194,7 @@ if build_tests
     'battery_hook_state',
     'bluetooth_uuid_names',
     'button_layout',
+    'caeliglow_update_checker',
     'cairo_text_renderer',
     'caldav_client',
     'calendar_cache_permissions',

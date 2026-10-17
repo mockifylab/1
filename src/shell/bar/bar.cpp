@@ -1,5 +1,6 @@
 #include "shell/bar/bar.h"
 
+#include "caeliglow/caeliglow_animations.h"
 #include "compositors/compositor_platform.h"
 #include "config/config_service.h"
 #include "core/deferred_call.h"
@@ -1937,8 +1938,10 @@ void Bar::setInstanceIpcVisible(BarInstance& instance, bool visible) {
   }
   const float current = instance.hideOpacity;
   const float target = visible ? 1.0F : 0.0F;
+  // CaeliGlow: same reveal/conceal timing pair as the hover path.
   instance.animations.animate(
-      current, target, Style::animNormal, visible ? Easing::EaseOutCubic : Easing::EaseInQuad,
+      current, target, visible ? caeliglow::kBarRevealMs : caeliglow::kBarConcealMs,
+      visible ? Easing::EaseOutBack : Easing::EaseInQuad,
       [inst = &instance, this](float v) {
         inst->hideOpacity = v;
         syncBarSlideLayerTransform(*inst);
@@ -3152,8 +3155,11 @@ void Bar::revealAutoHideBar(BarInstance& instance) {
     return;
   }
 
+  // CaeliGlow: bar hover reveal — 500 ms overshooting ease-out, matching the
+  // Caelestia behavioral reference as closely as the Easing enum allows
+  // (see caeliglow/caeliglow_animations.h).
   instance.animations.animate(
-      current, 1.0F, Style::animNormal, Easing::EaseOutCubic,
+      current, 1.0F, caeliglow::kBarRevealMs, Easing::EaseOutBack,
       [inst = &instance, this](float v) {
         inst->hideOpacity = v;
         syncBarSlideLayerTransform(*inst);
@@ -3243,8 +3249,9 @@ void Bar::startHideFadeOut(BarInstance& instance, bool immediate) {
   }
   instance.autoHideDelayTimer.stop();
   const float current = instance.hideOpacity;
+  // CaeliGlow: bar conceal — 400 ms ease-in (see caeliglow/caeliglow_animations.h).
   instance.animations.animate(
-      current, 0.0F, Style::animNormal, Easing::EaseInQuad,
+      current, 0.0F, caeliglow::kBarConcealMs, Easing::EaseInQuad,
       [this, inst = &instance](float v) {
         inst->hideOpacity = v;
         syncBarSlideLayerTransform(*inst);
