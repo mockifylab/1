@@ -459,6 +459,9 @@ void Application::initInputDispatch() {
       return;
     if (m_hotCorners.onPointerEvent(event))
       return;
+    // CaeliGlow: bottom-edge launcher reveal trigger.
+    if (m_launcherEdgeTrigger.onPointerEvent(event))
+      return;
     m_notificationToast.onPointerEvent(event);
   });
 
@@ -1162,4 +1165,6 @@ void Application::initWidgetControllersAndCallbacks() {
   // never occluded by shell chrome on their shared layer.
   m_screenCorners.initialize(m_wayland, &m_configService, &m_renderContext);
   m_hotCorners.initialize(m_wayland, &m_configService, &m_renderContext);
+  // CaeliGlow: bottom-edge launcher reveal trigger.
+  m_launcherEdgeTrigger.initialize(m_wayland, &m_renderContext);
 }

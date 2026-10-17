@@ -1,5 +1,6 @@
 #include "shell/panel/panel_manager.h"
 
+#include "caeliglow/caeliglow_animations.h"
 #include "compositors/compositor_platform.h"
 #include "config/config_service.h"
 #include "core/deferred_call.h"
@@ -2309,8 +2310,15 @@ void PanelManager::startAttachedOpenAnimation() {
   }
 
   m_attachedOpenAnimationPending = false;
+  // CaeliGlow: the launcher reveal matches the Caelestia behavioral reference's
+  // 500 ms overshooting ease-out as closely as the architecture allows (the
+  // gooey concave morph itself has no equivalent in this renderer and cannot
+  // be copied). Other panels keep the default timing.
+  const bool caeliGlowLauncherReveal = (m_activePanelId == "launcher");
   m_animations.animate(
-      m_attachedRevealProgress, 1.0F, Style::animNormal, Easing::EaseOutCubic,
+      m_attachedRevealProgress, 1.0F,
+      caeliGlowLauncherReveal ? caeliglow::kBarRevealMs : static_cast<float>(Style::animNormal),
+      caeliGlowLauncherReveal ? Easing::EaseOutBack : Easing::EaseOutCubic,
       [this](float v) { applyAttachedReveal(v); }, {}, m_attachedRevealClipNode
   );
 }

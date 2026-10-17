@@ -42,6 +42,7 @@
 #include "shell/bar/bar.h"
 #include "shell/desktop/desktop_widgets_controller.h"
 #include "shell/dock/dock.h"
+#include "caeliglow/launcher_edge_trigger.h"
 #include "shell/hot_corners/hot_corners.h"
 #include "shell/lockscreen/lock_screen.h"
 #include "shell/lockscreen/lockscreen_widgets_controller.h"
@@ -366,6 +367,8 @@ private:
   PrivacyOsd m_privacyOsd;
   OsdOverlay m_osdOverlay;
   HotCorners m_hotCorners{this};
+  // CaeliGlow: bottom-edge launcher reveal trigger.
+  caeliglow::LauncherEdgeTrigger m_launcherEdgeTrigger{this};
   ScreenCorners m_screenCorners;
   TrayMenu m_trayMenu;
   Wallpaper m_wallpaper;

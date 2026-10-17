@@ -430,6 +430,7 @@ alias_target('wayland-protocol-headers', _protocol_headers)
 _noctalia_sources = files(
   # CaeliGlow additions (kept grouped for rebase clarity).
   'src/caeliglow/update_checker.cpp',
+  'src/caeliglow/launcher_edge_trigger.cpp',
   'src/app/application.cpp',
   'src/app/application_events.cpp',
   'src/app/application_ipc.cpp',

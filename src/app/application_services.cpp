@@ -853,6 +853,8 @@ void Application::reconcileOutputSurfaces() {
   m_lockscreenWidgetsController.onOutputChange();
   m_screenCorners.onOutputChange();
   m_hotCorners.onOutputChange();
+  // CaeliGlow: bottom-edge launcher reveal trigger.
+  m_launcherEdgeTrigger.onOutputChange();
   m_lockScreen.onOutputChange();
   m_idleGraceOverlay.onOutputChange();
   m_idleInhibitor.onOutputChange();
