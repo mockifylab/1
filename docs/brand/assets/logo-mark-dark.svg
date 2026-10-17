@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128" role="img" aria-label="CaeliGlow mark">
+  <title>CaeliGlow mark</title>
+  
+  <path d="M 97.3 77.7 A 36 36 0 1 1 60.1 28.2 A 31 31 0 0 1 97.3 77.7 Z" fill="#FFC766"/>
+  <path d="M 88 26 C 89.82 35.519999999999996, 92.48 38.18, 102 40 C 92.48 41.82, 89.82 44.480000000000004, 88 54 C 86.18 44.480000000000004, 83.52 41.82, 74 40 C 83.52 38.18, 86.18 35.519999999999996, 88 26 Z" fill="#E9EDF8"/>
+  <path d="M 114.8 40.3 A 56 56 0 1 1 87.7 13.2" fill="none" stroke="#E9EDF8" stroke-width="6" stroke-linecap="round"/>
+</svg>
