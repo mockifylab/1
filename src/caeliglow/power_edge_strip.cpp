@@ -132,6 +132,13 @@ namespace caeliglow {
 
     instance.sceneRoot = std::move(root);
     instance.inputDispatcher.setSceneRoot(instance.sceneRoot.get());
+    // Hovering a button shows its accessible label via the shell tooltip
+    // system (same wiring as the dock).
+    instance.inputDispatcher.setHoverChangeCallback([inst = &instance](InputArea* /*old*/, InputArea* next) {
+      if (inst->surface != nullptr) {
+        TooltipManager::instance().onHoverChange(next, inst->surface->layerSurface(), inst->output);
+      }
+    });
 
     instance.surface->setRenderContext(m_renderContext);
     instance.surface->setSceneRoot(instance.sceneRoot.get());
